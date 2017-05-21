@@ -5,10 +5,14 @@ import { Component } from '@angular/core';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-    gameCounter: number;
+export class AppComponent {    
+    gameTicks: number[] = [];
 
-    onGameTick(event) {
-        console.log(event);
+    onGameTick(counter) {
+        // Reset the array if we are statring over
+        if (counter === 1) {
+            this.gameTicks = [];
+        }
+        this.gameTicks.push(counter);
     }     
 }

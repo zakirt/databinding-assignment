@@ -16,7 +16,11 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <app-game-control (gameTick)="onGameTick($event)"></app-game-control>  
+        <app-game-control (gameTick)="onGameTick($event)"></app-game-control>
+        <div *ngFor="let tick of gameTicks">
+          <app-odd *ngIf="tick % 2 !== 0" [number]="tick"></app-odd>
+          <app-even *ngIf="tick % 2 === 0" [number]="tick"></app-even>           
+        </div>          
       </div>
     </div>
   </div>
